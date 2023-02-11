@@ -9,6 +9,7 @@
   --white: #ffffff; 
   --subbtle-text: #8E8F99;
   --green:#31D0AA;
+  --modal: #FCFCFC;
   }
   
   .body{
@@ -16,7 +17,6 @@
     font-family: "Roboto","Raleway", sans-serif;
     margin: auto;
     max-width: 1440px;
-    padding-top: 73px;
   }
   .body a{
     text-decoration:none;
@@ -78,6 +78,14 @@
     top: 0;
   }
   
+
+  /* .header .container{
+    margin-bottom: 24px;
+  } */
+
+
+
+
   .header .container,
   .header-navigation{
     display: flex;
@@ -98,29 +106,41 @@
     gap: 40px;
     list-style: none;
   }
-  
-  .header-list a:hover,
-  .header-address a:hover{
-    color: var(--pressed-state);
+
+  .header-list a,
+  .header-address a {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
+  .header-list a:hover,
+  .header-address a:hover,
   .header-list a:focus,
   .header-address a:focus{
     color: var(--pressed-state);
   }
   
-  
   /* navigation */
   .header-list-item{
+    position: relative;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--dark);
+    padding-bottom: 24px ;
   }
   
-  /* .header-list-item::after{
-  } */
+  .header-list-item::after{
+    content: "";
+    position: absolute;
+    
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--primary-brand);
+  }
   
   
   .email-number{
@@ -174,12 +194,13 @@
     line-height: 1.5;
     letter-spacing: 0.04em;
     color: var(--white);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .button-order:hover,
   .button-order:focus{
     background-color: var(--pressed-state);
-  
   }
   
   
@@ -347,6 +368,8 @@
     display: flex;
     margin: 0;
     padding: 0;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .team-name-job a:hover,
   .team-name-job a:focus{
@@ -389,6 +412,8 @@
     height: 88px;
     display: inline-block;
     color: var(--subbtle-text);
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .customers a:hover,
   .customers a:focus{
@@ -459,6 +484,8 @@
     background-color: rgba(255, 255, 255, 0.1);
     display: inline-block;
     display: flex;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .footer-media a:hover,
@@ -494,7 +521,7 @@
   .buttons-list button {
     cursor:pointer;
     font-family: inherit;
-    background: var(--accent);
+    background-color: var(--accent);
     border: 1px solid var(--light);
     border-radius: 4px;
     padding: 12px 24px 12px 24px;
@@ -504,10 +531,12 @@
     line-height: 1.5;
     letter-spacing: 0.04em;
     color: var(--primary-brand);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .buttons-list button:hover,
   .buttons-list button:focus{
-    background: var(--pressed-state);
+    background-color: var(--pressed-state);
     color: var(--white);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
   }
@@ -543,10 +572,10 @@
     flex-basis: calc(100% / 3 - 24px);
     margin: 48px 0 0 24px;
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .projects-list li:hover{
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-  
   } 
   
   .projects-text-box{
@@ -557,11 +586,8 @@
   }
   
   
-  
-  
-  
-  
-  
+  /* Overlay */
+  /* IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII */
   .overlay-box {
     position: relative;
     overflow: hidden;
@@ -576,6 +602,7 @@
     padding: 0 32px 0 32px;
   
     transform: translateY(+100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .overlay p{
@@ -588,12 +615,12 @@
   
   .projects-list li:hover .overlay{
     transform: translateY(0);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   
   
-  
+  /* Backdrop */
+  /* IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII */
   .backdrop{
     position: fixed;
     top: 0;
@@ -602,7 +629,48 @@
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
   }
+
+  .backdrop.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+  }
   
   .modal{
-    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 24px;
+    width: 408px;
+    height: 576px;
+    background-color: var(--modal);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    /* transform: scale(0%);
+    transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  }
+
+
+  .modal button{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--light);
+    background-image: url(../images/Vector.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal button:hover{
+    background-color: #c1c6ee;
   }

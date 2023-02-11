@@ -63,7 +63,7 @@
       <section class="hero-image">
           <div class="container">
             <h1 class="main-banner">Effective Solutions for Your Business</h1>
-            <button class="button-order" type="button">Order Service</button>
+            <button class="button-order" type="button" data-modal-open>Order Service</button>
           </div>
       </section>
 
@@ -432,12 +432,19 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <button>close</button>
+        <button data-modal-close></button>
       </div>
     </div>
 
+    <script>
+      const { height: pageHeaderHeight } = document
+        .querySelector(".header")
+        .getBoundingClientRect();
 
+      document.body.style.paddingTop = `${pageHeaderHeight}px`;
+    </script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
