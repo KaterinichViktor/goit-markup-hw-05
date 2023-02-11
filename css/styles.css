@@ -71,11 +71,13 @@
     border-bottom: 1px solid var(--light);
     padding: 24px 0 24px 0;
     max-height: 76px;
-    position: fixed;
+    /* position: fixed;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    top: 0;
+    top: 0; */
+    
+    /* z-index: 99; */
   }
   
 
@@ -127,10 +129,10 @@
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--dark);
-    /* padding-bottom: 24px ; */
+    padding-bottom: 27px ;
   }
   
-  /* .header-list-item::after{
+  .header-list-item.current::after{
     content: "";
     position: absolute;
     
@@ -140,7 +142,7 @@
     height: 4px;
     border-radius: 2px;
     background-color: var(--primary-brand);
-  } */
+  }
   
   
   .email-number{
@@ -635,14 +637,15 @@
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
 
-    /* transform: scale(1);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
   }
 
   .backdrop.is-hidden{
     opacity: 0;
     pointer-events: none;
-    /* transform: scale(0.01); */
   }
   
   .backdrop.is-hidden .modal{
