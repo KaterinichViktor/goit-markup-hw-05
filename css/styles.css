@@ -67,8 +67,7 @@
   .header {
     background-color: var(--white);
     border-bottom: 1px solid var(--light);
-    padding: 24px 0 24px 0;
-    max-height: 76px;
+
     /* position: fixed;
     width: 100%;
     max-width: 1440px;
@@ -89,6 +88,7 @@
   .header .container,
   .header-navigation{
     display: flex;
+    
   }
   
   .header-address {
@@ -127,7 +127,8 @@
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--dark);
-    padding-bottom: 27px ;
+    padding: 20px 0 28px 0;
+    display: block;
   }
   
   .header-list-item.current::after{
