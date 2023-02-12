@@ -88,7 +88,7 @@
   .header .container,
   .header-navigation{
     display: flex;
-    
+    align-items: center;
   }
   
   .header-address {
